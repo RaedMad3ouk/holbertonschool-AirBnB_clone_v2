@@ -27,10 +27,11 @@ def c_text(text):
     return "C {}".format(text.replace('_', ' '))
 
 
-@app.route('/python/<text>')
-def python(text):
+@app.route('/python')
+@app.route('/pyton/<text>')
+def python_text(text="is cool"):
 
-    return "python {}".format(text.replace('_', ' '))
+    return "Python {}".format(text.replace('_', ' '))
 
 
 if __name__ == "__main__":
