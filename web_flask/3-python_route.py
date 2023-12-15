@@ -2,6 +2,10 @@
 """
 script starts Flask web app
     listen on 0.0.0.0, port 5000
+    routes: /:              display "Hello HBNB!"
+            /hbnb:          display "HBNB"
+            /c/<text>:      display "C" + text (replace underscores with space)
+            /python/<text>: display "Python" + text (default is "is cool")
 """
 
 from flask import Flask
@@ -11,24 +15,24 @@ app.url_map.strict_slashes = False
 
 @app.route('/')
 def hello_hbnb():
-
+    """display text"""
     return "Hello HBNB!"
 
 
 @app.route('/hbnb')
 def hbnb():
-
+    """display text"""
     return "HBNB"
 
 
 @app.route('/c/<text>')
 def c_text(text):
-
+    """display custom text given"""
     return "C {}".format(text.replace('_', ' '))
 
 
 @app.route('/python')
-@app.route('/pyton/<text>')
+@app.route('/python/<text>')
 def python_text(text="is cool"):
 
     return "Python {}".format(text.replace('_', ' '))
