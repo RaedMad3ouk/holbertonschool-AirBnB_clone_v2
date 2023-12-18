@@ -88,6 +88,7 @@ class DBStorage:
         self.__session = session_scoped()
 
     def close(self):
-
-         self.__session.close()
-
+        """ Closes the current session """
+        if self.__session:
+            self.__session.close()
+            self.__session = None  # Set the session attribute to None after closing
