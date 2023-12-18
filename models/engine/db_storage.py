@@ -91,4 +91,4 @@ class DBStorage:
         """ Closes the current session """
         if self.__session:
             self.__session.close()
-            self.__session = None  # Set the session attribute to None after closing
+            self.__session = None
